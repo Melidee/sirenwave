@@ -1,0 +1,12 @@
+
+
+
+{
+    "operation": "add_track"
+    "track_path": "C:/Users/Music/my_song.mp3"
+}
+
+{
+    "operation": "remove_track"
+    
+}

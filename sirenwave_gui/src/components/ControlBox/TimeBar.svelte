@@ -1,14 +1,14 @@
 <script lang="ts">
   import RangeSlider from "svelte-range-slider-pips";
-  export let max = 100;
-  let values = [0];
+  export let songLength: Number = 100;
+  export let values: Array<Number> = [0];
 </script>
 
-<div class="range-slider" style="height: 10%;">
+<div class="range-slider">
   <RangeSlider
-    bind:values={values}
+    bind:values
     min={0}
-    {max}
+    max={songLength}
     range="min"
     float
     hover={true}
@@ -17,8 +17,23 @@
 </div>
 
 <style>
-  #slider {
-    height: 10px;
+  :global(#slider) {
+    position: absolute;
+    height: 1vh;
+    width: 80vw;
+    left: 5.25vw;
+    bottom: 1.5vh;
+    padding: 0;
+    margin: 0;
+  }
+
+  :global(#slider .rangeBar) {
+    height: 1vh;
+  }
+  :global(#slider .rangeHandle) {
+    height: 2vh;
+    width: 2vh;
+    top: 0.5vh;
   }
 
   .range-slider {
@@ -32,11 +47,7 @@
     --range-float-inactive: var(--range-handle-inactive);
     --range-float: var(--range-handle-focus);
     --range-float-text: white;
-    position: absolute;
-    width: 80vw;
     margin: 0;
     padding: 0;
-    bottom: 3vh;
-    left: 5vw;
   }
 </style>
